@@ -1,0 +1,16 @@
+name = "ArrayViewer"
+uuid = "a53927aa-ac1c-4dbe-9eb7-330ec702dac6"
+authors = ["Daniel Elnatan <4480843+delnatan@users.noreply.github.com>"]
+version = "0.1.0"
+
+[deps]
+GLMakie = "e9467ef8-e4e7-5192-8a1a-b1aee30e663a"
+Makie = "ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a"
+Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
+Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
+
+[compat]
+GLMakie = "0.11.3"
+Makie = "0.22.2"
+Printf = "1.11.0"
+Revise = "3.7.2"
