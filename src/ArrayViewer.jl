@@ -79,8 +79,8 @@ function imshow(arr::AbstractArray{T,N}; colormap::Symbol=:viridis) where {T,N}
         Label(toggle_gl[1,1], "inspector")
         inspect_toggle = Toggle(toggle_gl[1,2], active=true)
 
-        vmin = Observable(minimum(current_slice[]))
-        vmax = Observable(maximum(current_slice[]))
+        vmin = Observable(minimum(arr))
+        vmax = Observable(maximum(arr))
         gamma = Observable(1.0)
 
         gamma_scaler = lift(gamma) do γ
