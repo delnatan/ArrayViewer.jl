@@ -8,7 +8,9 @@ export imshow
 function imshow(arr::AbstractArray{T,N}; colormap::Symbol=:viridis) where {T,N}
 
     figsize = (600,600)
-
+    slider_column_width = 5
+    toggle_column_start = slider_column_width + 1
+    
     if ndims(arr) == 2
         fig = Figure(size=figsize)
 
@@ -17,7 +19,7 @@ function imshow(arr::AbstractArray{T,N}; colormap::Symbol=:viridis) where {T,N}
 
         # Create DataInspector and Toggle button for pixel inspector
         inspector = DataInspector(ax)
-        toggle_gl = GridLayout(fig[2, 6:8], tellwidth=false)
+        toggle_gl = GridLayout(fig[2, toggle_column_start:8], tellwidth=false)
         Label(toggle_gl[1,1], "inspector")
         inspect_toggle = Toggle(toggle_gl[1,2], active=true)
                 
@@ -73,7 +75,7 @@ function imshow(arr::AbstractArray{T,N}; colormap::Symbol=:viridis) where {T,N}
 
         # Create DataInspector and Toggle button for pixel inspector
         inspector = DataInspector(ax)
-        toggle_gl = GridLayout(fig[2, 6:8], tellwidth=false)
+        toggle_gl = GridLayout(fig[2, toggle_column_start:8], tellwidth=false)
         Label(toggle_gl[1,1], "inspector")
         inspect_toggle = Toggle(toggle_gl[1,2], active=true)
 
@@ -89,7 +91,7 @@ function imshow(arr::AbstractArray{T,N}; colormap::Symbol=:viridis) where {T,N}
         end
         
         # now create the display min/max/gamma adjustment inputs
-        dispctrl_gl = GridLayout(fig[3, 5:8], tellwidth=false)
+        dispctrl_gl = GridLayout(fig[3, slider_column_width:8], tellwidth=false)
         vmin_input = Textbox(dispctrl_gl[1, 2], placeholder="$(vmin[])", width=60, height=20, fontsize=9)
         vmax_input = Textbox(dispctrl_gl[2, 2], placeholder="$(vmax[])", width=60, height=20, fontsize=9)
         gamma_input = Textbox(dispctrl_gl[3, 2], placeholder="$(gamma[])", width=60, height=20, fontsize=9)
